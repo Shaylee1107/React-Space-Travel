@@ -1,8 +1,11 @@
-function App ()
-{
+import NavigationBar from "./routes/NavigationBar";
+import { BrowserRouter } from "react-router-dom";
+
+const App = () => {
   return (
-    <h1>Space Travel</h1>
+    <NavigationBar />
   );
 }
+
 
 export default App;
