@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Spacecrafts = () => {
+    const navigate = useNavigate();
     return (
         <div>
-            <button>🏗️Build a Spacecraft</button>
+            <button onClick={() => navigate('spacecraftbuild')}>🏗️Build a Spacecraft</button>
             
         </div>
     )
