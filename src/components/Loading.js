@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/Loading.css';
-import LoadingContext from '../context/LoadingContext';
 
 const Loading = () => {
     return (

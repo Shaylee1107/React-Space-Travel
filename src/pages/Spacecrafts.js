@@ -2,7 +2,10 @@ import React from 'react';
 
 const Spacecrafts = () => {
     return (
-        <div>Spacecrafts</div>
+        <div>
+            <button>🏗️Build a Spacecraft</button>
+            
+        </div>
     )
 }
 
