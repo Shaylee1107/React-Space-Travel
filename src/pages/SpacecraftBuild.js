@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import SpacecraftContext from '../context/SpacecraftContext';
 
 const SpacecraftBuild = () => {
+    const navigate = useNavigate();
+    const {buildSpacecraft} = useContext(SpacecraftContext);
     const INITIAL_STATE = {
-        spacecraftName: '',
+        name: '',
         capacity: '',
-        descritption: '',
+        description: '',
         pictureUrl: ''
     }
     const [formData, setFormData] = useState(INITIAL_STATE);
@@ -17,18 +22,19 @@ const SpacecraftBuild = () => {
     }
     const handleClick = (e) => {
         e.preventDefault(); 
+        buildSpacecraft({...formData})
         setFormData(INITIAL_STATE);
         alert(`making ship!`)
     }
     return (
         <>
-            <div>SpacecraftBuild Form:</div>
+            <button onClick={() => navigate(-1)}>Back</button>
             <form onSubmit={handleClick}>
                 <input 
                   type="text" 
-                  name="SpacecraftName"
-                  placeholder="name" 
-                  value={formData.spacecraftName} 
+                  name="name"
+                  placeholder="Name" 
+                  value={formData.name} 
                   onChange={handleChange}
                 />
                  <input 
@@ -42,7 +48,7 @@ const SpacecraftBuild = () => {
                   type="text" 
                   name="description"
                   placeholder="Description" 
-                  value={formData.descritption} 
+                  value={formData.description} 
                   onChange={handleChange}
                 />
                 <input 

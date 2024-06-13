@@ -7,12 +7,14 @@ import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   return (
+    <>
     <BrowserRouter>
       <NavigationBar />
       <AppRoute />
       <Motto />
       {/* <Loading /> */}
     </BrowserRouter>
+    </>
   );
 }
 
