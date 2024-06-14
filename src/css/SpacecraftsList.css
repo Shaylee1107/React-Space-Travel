@@ -1,0 +1,9 @@
+.container {
+    border: 5px solid white;
+    height: 100px; 
+    margin: 10px 50px;
+}
+
+.info {
+    color: white; 
+}

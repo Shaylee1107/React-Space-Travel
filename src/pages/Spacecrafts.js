@@ -1,33 +1,45 @@
-import React, {useState} from 'react';
-// import SpacecraftContext from '../context/SpacecraftContext';
+import React, {useEffect, useState} from 'react';
 import Spacecraft from './Spacecraft';
 import { useNavigate } from 'react-router-dom';
+import SpaceTravelApi from '../services/SpaceTravelApi';
+import SpacecraftList from '../components/SpacecraftList';
 
-// import SpaceTravelApi from '../services/SpaceTravelApi';
-
-import { useContext } from 'react';
-import SpacecraftContext from '../context/SpacecraftContext';
 
 const Spacecrafts = () => {
-    // const INITIAL_STATE = [];
-    // const [spacecrafts, setSpacecrafts] = useState(INITIAL_STATE);
+    const [spaceship, setSpaceship] = useState('');
     const navigate = useNavigate();
-    // const buildSpacecraft = (formData) => {
-    //     console.log(formData, 'formData')
-    // }
+    const loadSpacecrafts = () => {
+        console.log(spaceship, 'spaceship')
+        if(spaceship !== ''){
+          return (
+            spaceship.map((s) => {
+              return (<SpacecraftList 
+                key={s.id} 
+                pictureUrl={s.pictureUrl} 
+                name={s.name} 
+                capacity={s.capacity}
+                />
+              )
+            })
+          )
+        }
+    }
 
-    // const {spacecrafts} = useContext(SpacecraftContext);
+    useEffect(() => {
+        const all = async () => {
+            const responce = await SpaceTravelApi.getSpacecrafts();
+            setSpaceship(responce.data);
+        };
 
-
-    // console.log(SpaceTravelApi.buildSpacecraft, 'buildSpacecraft from APi')
-
+        all();
+    }, [])
 
     return (
         <div>
-            {/* <SpacecraftContext.Provider value={{spacecrafts, buildSpacecraft}}> */}
-                <button onClick={() => navigate('spacecraftbuild')}>🏗️Build a Spacecraft</button>
-                {/* <Spacecraft /> */}
-            {/* </SpacecraftContext.Provider> */}
+            <button onClick={() => navigate('spacecraftbuild')}>🏗️Build a Spacecraft</button>
+            <div>
+              {loadSpacecrafts()}
+            </div>
         </div>
     )
 }
