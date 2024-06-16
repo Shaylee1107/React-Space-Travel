@@ -1,16 +1,44 @@
-import React, {useEffect} from 'react';
-// import SpaceTravelApi from '../services/SpaceTravelApi';
+import React, {useEffect, useState} from 'react';
+import SpaceTravelApi from '../services/SpaceTravelApi';
+import { useContext } from 'react';
+import SpacecraftContext from '../context/SpacecraftContext';
+import ClickedSpacecraft from '../components/ClickedSpacecraft';
+import { useNavigate } from 'react-router-dom';
 
 const Spacecraft = () => {
-    // useEffect(() => {
-    //     const all = async () => {
-    //         const responce = await SpaceTravelApi.getSpacecrafts();
-    //         return responce.data;
-    //     };
-    //     console.log(all(), 'all');
-    // }, [])
+    const [spacecraft, setSpacecraft] = useState('');
+    const {currSpacecraft} = useContext(SpacecraftContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      const loadSpacecraft = async () => {
+            const current = await SpaceTravelApi.getSpacecraftById({id: currSpacecraft});
+            setSpacecraft(current.data);
+            loadShipFromEffect();
+        }
+
+        loadSpacecraft();
+    }, [])
+
+    const loadShipFromEffect = () => {
+        if(spacecraft !== undefined && spacecraft !== ''){
+            return (
+                <ClickedSpacecraft 
+                  id={spacecraft.id} 
+                  capacity={spacecraft.capacity} 
+                  name={spacecraft.name} 
+                  description={spacecraft.description} 
+                  pictureUrl={spacecraft.pictureUrl}
+                />
+            )
+         }
+    }
+      
     return (
-        <div>Spacecraft</div>
+       <>
+        <button onClick={() => navigate(-1)}>Back</button>
+        {loadShipFromEffect()}
+       </>
     )
 }
 

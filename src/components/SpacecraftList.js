@@ -1,9 +1,9 @@
 import React from 'react';
 import '../css/SpacecraftsList.css';
 
-const SpacecraftList = ({pictureUrl, name, capacity}) => {
+const SpacecraftList = ({pictureUrl, name, capacity, id, showSpaceshipDetails}) => {
     return (
-        <div className="container">
+        <div className="container" onClick={() => showSpaceshipDetails(id)}>
           <div>
             <img src={`${pictureUrl}`}/>
           </div>

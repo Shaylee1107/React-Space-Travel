@@ -5,6 +5,7 @@ import SpaceTravelApi from '../services/SpaceTravelApi';
 const SpacecraftProvider = ({ children }) => {
     const INITIAL_STATE = [];
     const [spacecrafts, setSpacecrafts] = useState(INITIAL_STATE);
+    const [currSpacecraft, setCurrSpacecraft] = useState('');
     const buildSpacecraft = (formData) => {
       setSpacecrafts(crafts => [...crafts, formData]);
   }
@@ -17,7 +18,7 @@ const SpacecraftProvider = ({ children }) => {
   }, [buildSpacecraft, spacecrafts])
     return (
         <>
-            <SpacecraftContext.Provider value={{spacecrafts, setSpacecrafts, buildSpacecraft}}>
+            <SpacecraftContext.Provider value={{spacecrafts, setSpacecrafts, buildSpacecraft, currSpacecraft, setCurrSpacecraft}}>
                 {children}
             </SpacecraftContext.Provider>
         </>

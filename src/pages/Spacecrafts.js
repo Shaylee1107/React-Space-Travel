@@ -1,23 +1,32 @@
 import React, {useEffect, useState} from 'react';
-import Spacecraft from './Spacecraft';
 import { useNavigate } from 'react-router-dom';
 import SpaceTravelApi from '../services/SpaceTravelApi';
 import SpacecraftList from '../components/SpacecraftList';
+import { useContext } from 'react';
+import SpacecraftContext from '../context/SpacecraftContext';
 
 
 const Spacecrafts = () => {
     const [spaceship, setSpaceship] = useState('');
     const navigate = useNavigate();
+
+    const {setCurrSpacecraft} = useContext(SpacecraftContext);
+    const showSpaceshipDetails = (id) => {
+        setCurrSpacecraft(id);
+        navigate('spacecraft'); 
+    }
+
     const loadSpacecrafts = () => {
-        console.log(spaceship, 'spaceship')
         if(spaceship !== ''){
           return (
             spaceship.map((s) => {
               return (<SpacecraftList 
-                key={s.id} 
+                id={s.id} 
+                key={s.id}
                 pictureUrl={s.pictureUrl} 
                 name={s.name} 
                 capacity={s.capacity}
+                showSpaceshipDetails={showSpaceshipDetails}
                 />
               )
             })
