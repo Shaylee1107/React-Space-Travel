@@ -1,14 +1,19 @@
 .container {
     border: 1px solid white; 
     height: 200px; 
-    width: 80%;
+    width: 90%;
 }
 
 .img-container {
     height: 100px; 
-    display: flex;
 }
 
 .img {
     width: 100px; 
+    height: 100px;
+}
+
+.spaceship-container {
+    height: 100px; 
+    display: flex;
 }

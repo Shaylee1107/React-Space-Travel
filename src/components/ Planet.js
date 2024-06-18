@@ -37,7 +37,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
                 landedSpacecrafts.map((s) => {
                     return (
                         
-                            <div>
+                            <div className='img-container'>
                                 <img src={s.pictureUrl} alt="spacecraft" className="img"/>
                             </div>
                     
@@ -55,7 +55,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
                     <p>{name}</p>
                 <p>{currentPopulation}</p>
                 </div>
-                <div>
+                <div className="spaceship-container">
                     {showLandedSpacecrafts()}
                 </div>
             </div>
