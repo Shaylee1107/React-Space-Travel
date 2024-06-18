@@ -143,6 +143,7 @@ class SpaceTravelMockApi
       response.isError = true;
       response.data = error;
     }
+  
 
     return response;
   }
