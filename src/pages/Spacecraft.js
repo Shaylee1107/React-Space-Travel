@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Spacecraft = () => {
     const [spacecraft, setSpacecraft] = useState('');
-    const {currSpacecraft} = useContext(SpacecraftContext);
+    const {currSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const Spacecraft = () => {
     }, [])
 
     const loadShipFromEffect = () => {
-        if(spacecraft !== undefined && spacecraft !== ''){
+        if(spacecraft !== undefined && spacecraft !== '' && spacecraft !== null){
             return (
                 <ClickedSpacecraft 
                   id={spacecraft.id} 
@@ -29,6 +29,7 @@ const Spacecraft = () => {
                   name={spacecraft.name} 
                   description={spacecraft.description} 
                   pictureUrl={spacecraft.pictureUrl}
+                  destroySpacecraft={destroySpacecraft}
                 />
             )
          }

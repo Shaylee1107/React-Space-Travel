@@ -9,8 +9,9 @@ import SpacecraftContext from '../context/SpacecraftContext';
 const Spacecrafts = () => {
     const [spaceship, setSpaceship] = useState('');
     const navigate = useNavigate();
-    const {setCurrSpacecraft} = useContext(SpacecraftContext);
-    
+    const {setCurrSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
+    console.log(spaceship, 'spaceship in scpaceshifts')
+
     const showSpaceshipDetails = (id) => {
         setCurrSpacecraft(id);
         navigate('spacecraft'); 
@@ -27,6 +28,7 @@ const Spacecrafts = () => {
                 name={s.name} 
                 capacity={s.capacity}
                 showSpaceshipDetails={showSpaceshipDetails}
+                destroySpacecraft={destroySpacecraft}
                 />
               )
             })

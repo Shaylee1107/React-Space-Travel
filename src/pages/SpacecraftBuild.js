@@ -25,7 +25,6 @@ const SpacecraftBuild = () => {
         e.preventDefault(); 
         buildSpacecraft({...formData})
         setFormData(INITIAL_STATE);
-        alert(`making ship!`)
     }
     return (
         <>

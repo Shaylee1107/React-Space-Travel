@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import SpacecraftContext from '../context/SpacecraftContext';
 import SpaceTravelApi from '../services/SpaceTravelApi';
 
@@ -6,6 +6,8 @@ const SpacecraftProvider = ({ children }) => {
     const INITIAL_STATE = [];
     const [spacecrafts, setSpacecrafts] = useState(INITIAL_STATE);
     const [currSpacecraft, setCurrSpacecraft] = useState('');
+    const [destroyId, setDestroyId] = useState('');
+  
     const buildSpacecraft = (formData) => {
       setSpacecrafts(crafts => [...crafts, formData]);
   }
@@ -28,9 +30,24 @@ const SpacecraftProvider = ({ children }) => {
 
   }, [buildSpacecraft, spacecrafts])
 
+  const destroySpacecraft = useCallback((id) => {
+    console.log(id, 'THIS IS ID TO DESTROY')
+    setDestroyId(id);
+  }, [])
+
+  useEffect(() => {
+    const makeAPIDestroySpacecraft = async () => {
+        console.log(destroyId, 'desotryid')
+        console.log('RUNNING IT')
+        await SpaceTravelApi.destroySpacecraftById({id: destroyId});
+    }
+
+    makeAPIDestroySpacecraft();
+  }, [destroySpacecraft, destroyId])
+
     return (
         <>
-            <SpacecraftContext.Provider value={{spacecrafts, setSpacecrafts, buildSpacecraft, currSpacecraft, setCurrSpacecraft}}>
+            <SpacecraftContext.Provider value={{spacecrafts, setSpacecrafts, buildSpacecraft, currSpacecraft, setCurrSpacecraft, destroySpacecraft}}>
                 {children}
             </SpacecraftContext.Provider>
         </>

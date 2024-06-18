@@ -11,7 +11,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
            const spacecraftsData = spacecrafts.data; 
            spacecraftsData.map((d) => {
                 if(d.currentLocation === id){
-                    setLandedSpacecrafts(
+                    return (setLandedSpacecrafts(
                         landed => [...landed, 
                             {
                             'name': d.name, 
@@ -21,7 +21,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
                             'capacity': d.capacity
                             }
                         ]
-                    );
+                    ))
                 }
            });
         }
@@ -47,7 +47,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
 
     return (
         <>
-            <div className="container">
+            <div className="container" key={id}>
                 <div className="img-container">
                     <img src={pictureUrl} className="img"/>
                     <p>{name}</p>

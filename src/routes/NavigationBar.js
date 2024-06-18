@@ -7,7 +7,7 @@ const NavigationBar = () => {
     return (
         <div className="button-container">
             <button onClick={() => navigate('/')}>Home</button>
-            <button onClick={() => navigate('spacecrafts')}>Spacerafts</button>
+            <button onClick={() => navigate('spacecrafts')}>Spacecrafts</button>
             <button onClick={() => navigate('planets')}>Planets</button>
         </div>
     )
