@@ -4,6 +4,7 @@ import '../css/Planet.css';
 
 const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
     const [landedSpacecrafts, setLandedSpacecrafts] = useState([]);
+    console.log(landedSpacecrafts, 'landed')
 
     useEffect(() => {
         const findLandedSpacecrafts = async () => {
@@ -35,11 +36,11 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
             return (
                 landedSpacecrafts.map((s) => {
                     return (
-                        <>
+                        
                             <div>
-                                <img src={s.pictureUrl} alt="spacecraft"/>
+                                <img src={s.pictureUrl} alt="spacecraft" className="img"/>
                             </div>
-                        </>
+                    
                     )
                 })
             )

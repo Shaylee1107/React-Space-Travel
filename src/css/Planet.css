@@ -1,10 +1,12 @@
 .container {
     border: 1px solid white; 
     height: 200px; 
+    width: 80%;
 }
 
 .img-container {
     height: 100px; 
+    display: flex;
 }
 
 .img {
