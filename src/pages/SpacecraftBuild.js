@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import SpacecraftContext from '../context/SpacecraftContext';
-import SpaceTravelApi from '../services/SpaceTravelApi';
 
 const SpacecraftBuild = () => {
     const navigate = useNavigate();
