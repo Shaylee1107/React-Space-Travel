@@ -17,6 +17,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
                             'name': d.name, 
                             'currentLocation': d.currentLocation, 
                             'id': d.id, 
+                            'key': d.id,
                             'pictureUrl': d.pictureUrl, 
                             'capacity': d.capacity
                             }
@@ -36,7 +37,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
                     return (
                         <>
                             <div>
-                                <img src={s.pictureUrl}/>
+                                <img src={s.pictureUrl} alt="spacecraft"/>
                             </div>
                         </>
                     )

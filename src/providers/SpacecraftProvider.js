@@ -31,14 +31,11 @@ const SpacecraftProvider = ({ children }) => {
   }, [buildSpacecraft, spacecrafts])
 
   const destroySpacecraft = useCallback((id) => {
-    console.log(id, 'THIS IS ID TO DESTROY')
     setDestroyId(id);
   }, [])
 
   useEffect(() => {
     const makeAPIDestroySpacecraft = async () => {
-        console.log(destroyId, 'desotryid')
-        console.log('RUNNING IT')
         await SpaceTravelApi.destroySpacecraftById({id: destroyId});
     }
 

@@ -214,7 +214,6 @@ class SpaceTravelMockApi
       for (let i = 0; i < mockDb.spacecrafts.length; i++)
       {
         const spacecraft = mockDb.spacecrafts[i];
-        console.log(id, 'iddd')
         if (spacecraft.id === id)
         {
           mockDb.spacecrafts.splice(i, 1);
@@ -227,7 +226,7 @@ class SpaceTravelMockApi
       response.isError = true;
       response.data = error;
     }
-    console.log(id, response, 'id and response');
+  
     return response;
   }
 

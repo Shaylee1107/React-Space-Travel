@@ -10,7 +10,6 @@ const Spacecrafts = () => {
     const [spaceship, setSpaceship] = useState('');
     const navigate = useNavigate();
     const {setCurrSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
-    console.log(spaceship, 'spaceship in scpaceshifts')
 
     const showSpaceshipDetails = (id) => {
         setCurrSpacecraft(id);
