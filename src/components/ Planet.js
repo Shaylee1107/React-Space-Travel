@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import SpaceTravelApi from '../services/SpaceTravelApi';
 import FlyingSpaceship from './FlyingSpaceship';
+import DestinationContext from '../context/DestinationContext';
+import { useContext } from 'react';
 import '../css/Planet.css';
 
 const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
     const [data, setData] = useState([]);
+    const {setTargetPlanet, setTargetSpacecraft} = useContext(DestinationContext);
 
     useEffect(() => {
         const findLandedSpacecrafts = async () => {
@@ -16,15 +19,19 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
         findLandedSpacecrafts();
     }, [])
 
-    const sendShipToPlanet = (id) => {
-        console.log(id)
+    const sendShipToPlanet = (spacecraftId) => {
+      setTargetSpacecraft(spacecraftId);
+    }
+
+    const addPlanetToDesination = () => {
+        setTargetPlanet(id);
     }
 
     return (
         <>
             <div className="container">
                 <div className="img-container" key={id}>
-                    <img src={pictureUrl} className="img" alt="planet"/>
+                    <img  onClick={() => addPlanetToDesination()} src={pictureUrl} className="img" alt="planet"/>
                     <p>{name}</p>
                 <p>{currentPopulation}</p>
                 </div>

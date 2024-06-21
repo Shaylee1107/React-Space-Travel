@@ -6,10 +6,12 @@ import SpacecraftBuild from '../pages/SpacecraftBuild';
 import Spacecrafts from '../pages/Spacecrafts';
 import Planets from '../pages/Planets';
 import SpacecraftProvider from '../providers/SpacecraftProvider';
+import DestinationProvider from '../providers/DestinationProvider';
 
 const AppRoute = () => {
     return (
         <>
+         <DestinationProvider>
          <SpacecraftProvider>
             <Routes>
                 <Route path="/" element={<Home />}/>
@@ -19,6 +21,7 @@ const AppRoute = () => {
                 <Route path="planets" element={<Planets />}/>
             </Routes>
          </SpacecraftProvider>
+         </DestinationProvider>
         </>
     )
 }

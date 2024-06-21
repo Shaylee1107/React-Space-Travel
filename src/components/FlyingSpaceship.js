@@ -1,16 +1,14 @@
-import React, {useState} from 'react'; 
+import React, {useState, useEffect} from 'react'; 
 
 const FlyingSpaceship = ({name, capacity, pictureUrl, id, sendShipToPlanet}) => {
-    const [currCapacity, setCurrCapacity] = useState(capacity);
-    console.log(id, 'IN FLYING')
 
     return(
-        <div onClick={() => sendShipToPlanet(id, setCurrCapacity, currCapacity)}>
+        <div onClick={() =>  sendShipToPlanet(id)}>
           <div className='img-container'>
               <img src={pictureUrl} alt="spacecraft" className="img"/>
           </div>
           <p>{name}</p>
-          <p>{currCapacity}</p>
+          <p>{capacity}</p>
         </div>
     )
 }
