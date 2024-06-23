@@ -8,9 +8,11 @@ import { useContext } from 'react';
 const Planets = () => {
     const navigate = useNavigate();
     const [planets, setPlanets] = useState('');
-    const {targetPlanet} = useContext(DestinationContext);
-    const [, updateState] = React.useState();
-    const forceUpdate = React.useCallback(() => updateState({}), []);
+    // const {targetPlanet} = useContext(DestinationContext);
+    // const [, updateState] = React.useState();
+    // const forceUpdate = React.useCallback(() => updateState({}), []);
+    const [resetCount, setResetCount] = useState(0);
+    const [resetPlanetObjs, setResetPlanetObjs] = useState([]);
 
     useEffect(() => {
         const loadPlanets = async () => {
@@ -45,11 +47,39 @@ const Planets = () => {
     //   }
     // }, [forceUpdate, targetPlanet])
 
+    const incrementResetCount = () => {
+      setResetCount(count => count + 1);
+    }
+
+    useEffect(() => {
+      if(resetCount > 0){
+      const resetPlanetsCapacities = async () => {
+        const getPlanets = await SpaceTravelApi.getPlanets();
+        const planetData = getPlanets.data;
+        for(let data of planetData){
+          if(data.id !== 2){
+            data.currentPopulation = 0;
+          } else {
+            data.currentPopulation = 100000;
+          }
+        }
+        const local = localStorage.getItem("MOCK_DB");
+
+        localStorage.setItem("MOCK_DB", JSON.stringify(planetData)); 
+       
+        console.log(planetData, 'getPlanets')
+      }
+      resetPlanetsCapacities();
+    }
+
+    }, [resetCount])
+
     console.log("rendering...");
 
     return (
-        <div onClick={forceUpdate}>
+        <div>
            <button onClick={() => navigate(-1)}>Back</button>
+           <button onClick={() => incrementResetCount()}>Reset Planets</button>
            {loadPlanetsFromEffect()}
         </div>
     )
