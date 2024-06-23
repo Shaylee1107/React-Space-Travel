@@ -4,6 +4,7 @@ import SpaceTravelApi from '../services/SpaceTravelApi';
 import Planet from '../components/ Planet';
 import DestinationContext from '../context/DestinationContext';
 import { useContext } from 'react';
+import LoadingContext from '../context/LoadingContext';
 
 const Planets = () => {
     const navigate = useNavigate();
@@ -12,6 +13,8 @@ const Planets = () => {
     // const [, updateState] = React.useState();
     // const forceUpdate = React.useCallback(() => updateState({}), []);
     const [resetCount, setResetCount] = useState(0);
+    const {toggleLoading} = useContext(LoadingContext);
+    console.log(toggleLoading, 'toggleLoading')
 
     useEffect(() => {
         const loadPlanets = async () => {
