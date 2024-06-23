@@ -10,16 +10,6 @@ const Spacecraft = () => {
     const {currSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
     const navigate = useNavigate();
 
-    useEffect(() => {
-      const loadSpacecraft = async () => {
-            const current = await SpaceTravelApi.getSpacecraftById({id: currSpacecraft});
-            setSpacecraft(current.data);
-            loadShipFromEffect();
-        }
-
-        loadSpacecraft();
-    }, [])
-
     const loadShipFromEffect = () => {
         if(spacecraft !== undefined && spacecraft !== '' && spacecraft !== null){
             return (
@@ -34,6 +24,16 @@ const Spacecraft = () => {
             )
          }
     }
+
+    useEffect(() => {
+      const loadSpacecraft = async () => {
+            const current = await SpaceTravelApi.getSpacecraftById({id: currSpacecraft});
+            setSpacecraft(current.data);
+            loadShipFromEffect();
+        }
+
+        loadSpacecraft();
+    }, [currSpacecraft, loadShipFromEffect])
       
     return (
        <>
