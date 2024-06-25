@@ -3,11 +3,13 @@ import SpaceTravelApi from '../services/SpaceTravelApi';
 import FlyingSpaceship from './FlyingSpaceship';
 import DestinationContext from '../context/DestinationContext';
 import { useContext } from 'react';
+import Loading from '../components/Loading';
+import LoadingContext from '../context/LoadingContext';
 import '../css/Planet.css';
 
-const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
+const Planet = ({ name, pictureUrl, currentPopulation, id}) => {
     const [data, setData] = useState([]);
-    const {setTargetPlanet, setTargetSpacecraft} = useContext(DestinationContext);
+    const {setTargetPlanet, setTargetSpacecraft, reloadPlanets} = useContext(DestinationContext);
 
     useEffect(() => {
         const findLandedSpacecrafts = async () => {
@@ -19,6 +21,16 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
         findLandedSpacecrafts();
     }, [])
 
+    useEffect(() => {
+        const findLandedSpacecrafts = async () => {
+           const spacecrafts = await SpaceTravelApi.getSpacecrafts();
+           const spacecraftsData = spacecrafts.data; 
+           setData(spacecraftsData);
+        }
+
+        findLandedSpacecrafts();
+    }, [reloadPlanets])
+
     const sendShipToPlanet = (spacecraftId) => {
       setTargetSpacecraft(spacecraftId);
     }
@@ -27,6 +39,7 @@ const Planet = ({ name, pictureUrl, currentPopulation, id }) => {
         setTargetPlanet(id);
     }
 
+    console.log(data, 'this is data in planet')
     return (
         <>
             <div className="container">

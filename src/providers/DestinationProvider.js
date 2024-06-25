@@ -1,36 +1,35 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import DestinationContext from '../context/DestinationContext';
 import SpaceTravelApi from '../services/SpaceTravelApi';
-import { useReducer } from 'react';
+import LoadingContext from '../context/LoadingContext';
+import { useContext } from 'react';
 
 const DestinationProvider = ({ children }) => {
     const [targetPlanet, setTargetPlanet] = useState(null);
     const [targetSpacecraft, setTargetSpacecraft] = useState(null);
-    const [, forceUpdate] = useReducer(x => x + 1, 0);
-
-    // function useForceUpdate(){
-    //     console.log("RUNNING")
-    //     const [value, setValue] = useState(0); 
-    //     return () => setValue(value => value + 1); 
-    // }
-    // const forceUpdate = useForceUpdate();
+    const [reloadPlanets, setReloadPlanets] = useState(0);
 
     useEffect(() => {
         const sendShipToPlanet = async () => {
             if(targetSpacecraft !== null && targetPlanet !== null){
-                SpaceTravelApi.sendSpacecraftToPlanet({'spacecraftId': targetSpacecraft, 'targetPlanetId': targetPlanet})
-                 setTargetPlanet(null);
-                 setTargetSpacecraft(null);
-                 forceUpdate();
+                console.log("running")
+                await SpaceTravelApi.sendSpacecraftToPlanet({'spacecraftId': targetSpacecraft, 'targetPlanetId': targetPlanet})
+                setTargetPlanet(null);
+                setTargetSpacecraft(null);
+                makePlanetsReload();
             }
         }
 
         sendShipToPlanet();
-    }, [targetPlanet, targetSpacecraft, forceUpdate])
+    }, [targetPlanet, targetSpacecraft])
+
+    const makePlanetsReload = () => {
+        setReloadPlanets(count => count + 1);
+    }
 
     return (
         <>
-            <DestinationContext.Provider value={{targetPlanet, targetSpacecraft, setTargetPlanet, setTargetSpacecraft, forceUpdate}}>
+            <DestinationContext.Provider value={{targetPlanet, targetSpacecraft, setTargetPlanet, setTargetSpacecraft, reloadPlanets}}>
                 {children}
             </DestinationContext.Provider>
         </>

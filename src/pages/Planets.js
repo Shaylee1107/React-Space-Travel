@@ -2,31 +2,41 @@ import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpaceTravelApi from '../services/SpaceTravelApi';
 import Planet from '../components/ Planet';
-import DestinationContext from '../context/DestinationContext';
 import { useContext } from 'react';
 import LoadingContext from '../context/LoadingContext';
+import DestinationContext from '../context/DestinationContext';
 
 const Planets = () => {
     const navigate = useNavigate();
     const [planets, setPlanets] = useState('');
-    // const {targetPlanet} = useContext(DestinationContext);
-    // const [, updateState] = React.useState();
-    // const forceUpdate = React.useCallback(() => updateState({}), []);
     const [resetCount, setResetCount] = useState(0);
-    const {toggleLoading} = useContext(LoadingContext);
-    console.log(toggleLoading, 'toggleLoading')
+    const {showLoadingSign, disableLoading, enableLoading} = useContext(LoadingContext);
+    const {reloadPlanets} = useContext(DestinationContext);
 
     useEffect(() => {
         const loadPlanets = async () => {
+            enableLoading();
             const loadingAPI = await SpaceTravelApi.getPlanets();
-            console.log(loadingAPI, 'loadingAPI')
             setPlanets(loadingAPI.data);
+            disableLoading();
         }
 
         loadPlanets(); 
     }, [])
 
+    useEffect(() => {
+      const loadPlanets = async () => {
+          enableLoading();
+          const loadingAPI = await SpaceTravelApi.getPlanets();
+          setPlanets(loadingAPI.data);
+          disableLoading();
+      }
+
+      loadPlanets(); 
+  }, [reloadPlanets])
+
     const loadPlanetsFromEffect = () => {
+      console.log("IS THIS RUNNING?????????")
         if(planets !== ''){
             return (
               planets.map((p) => {
@@ -43,12 +53,6 @@ const Planets = () => {
             )
           }
     }
-
-    // useEffect(() => {
-    //   if(targetPlanet !== null){
-    //     forceUpdate();
-    //   }
-    // }, [forceUpdate, targetPlanet])
 
     const incrementResetCount = () => {
       setResetCount(count => count + 1);
@@ -131,10 +135,9 @@ const Planets = () => {
     }
     }, [resetCount])
 
-    console.log("rendering...");
-
     return (
         <div>
+          {showLoadingSign()}
            <button onClick={() => navigate(-1)}>Back</button>
            <button onClick={() => incrementResetCount()}>Reset</button>
            {loadPlanetsFromEffect()}
