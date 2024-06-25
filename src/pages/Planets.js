@@ -36,7 +36,6 @@ const Planets = () => {
   }, [reloadPlanets])
 
     const loadPlanetsFromEffect = () => {
-      console.log("IS THIS RUNNING?????????")
         if(planets !== ''){
             return (
               planets.map((p) => {

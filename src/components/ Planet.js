@@ -39,7 +39,6 @@ const Planet = ({ name, pictureUrl, currentPopulation, id}) => {
         setTargetPlanet(id);
     }
 
-    console.log(data, 'this is data in planet')
     return (
         <>
             <div className="container">

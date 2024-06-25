@@ -5,7 +5,6 @@ import { useCallback } from 'react';
 
 const LoadingWrapper = ({children}) => {
     const [isLoading, setIsLoading] = useState(false);
-    console.log(isLoading, 'isLoading in loadingwrapper')
 
     const enableLoading = useCallback(() =>
     {

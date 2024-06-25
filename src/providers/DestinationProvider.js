@@ -12,7 +12,6 @@ const DestinationProvider = ({ children }) => {
     useEffect(() => {
         const sendShipToPlanet = async () => {
             if(targetSpacecraft !== null && targetPlanet !== null){
-                console.log("running")
                 await SpaceTravelApi.sendSpacecraftToPlanet({'spacecraftId': targetSpacecraft, 'targetPlanetId': targetPlanet})
                 setTargetPlanet(null);
                 setTargetSpacecraft(null);
