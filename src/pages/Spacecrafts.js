@@ -10,7 +10,7 @@ const Spacecrafts = () => {
     const [spaceship, setSpaceship] = useState('');
     const navigate = useNavigate();
     const {setCurrSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
-
+ 
     const showSpaceshipDetails = (id) => {
         setCurrSpacecraft(id);
         navigate('spacecraft'); 
@@ -38,6 +38,7 @@ const Spacecrafts = () => {
     useEffect(() => {
         const all = async () => {
             const responce = await SpaceTravelApi.getSpacecrafts();
+            console.log(responce.data, 'data')
             setSpaceship(responce.data);
         };
 
