@@ -21,8 +21,8 @@ const SpacecraftProvider = ({ children }) => {
         const sendNewSpacecraftToEarth =  async() => {
             const allAPISpacecraft = await SpaceTravelApi.getSpacecrafts();
             const newestFromAPI = allAPISpacecraft.data;
-            const bro = newestFromAPI[newestFromAPI.length - 1].id;
-            SpaceTravelApi.sendSpacecraftToPlanet({spacecraftId: bro, targetPlanetId: 2})
+            const newCraftId = newestFromAPI[newestFromAPI.length - 1].id;
+            SpaceTravelApi.sendSpacecraftToPlanet({spacecraftId: newCraftId, targetPlanetId: 2})
         }
         
         sendNewSpacecraftToEarth();

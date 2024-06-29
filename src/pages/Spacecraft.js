@@ -4,10 +4,13 @@ import { useContext } from 'react';
 import SpacecraftContext from '../context/SpacecraftContext';
 import ClickedSpacecraft from '../components/ClickedSpacecraft';
 import { useNavigate } from 'react-router-dom';
+import LoadingContext from '../context/LoadingContext';
+
 
 const Spacecraft = () => {
     const [spacecraft, setSpacecraft] = useState('');
     const {currSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
+    const {showLoadingSign, disableLoading, enableLoading} = useContext(LoadingContext);
     const navigate = useNavigate();
 
     const loadShipFromEffect = () => {
@@ -27,7 +30,9 @@ const Spacecraft = () => {
 
     useEffect(() => {
       const loadSpacecraft = async () => {
+            // enableLoading();
             const current = await SpaceTravelApi.getSpacecraftById({id: currSpacecraft});
+            // disableLoading();
             setSpacecraft(current.data);
             loadShipFromEffect();
         }
@@ -37,6 +42,7 @@ const Spacecraft = () => {
       
     return (
        <>
+        {/* {showLoadingSign()} */}
         <button onClick={() => navigate(-1)}>Back</button>
         {loadShipFromEffect()}
        </>
