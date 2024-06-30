@@ -12,12 +12,12 @@ const SpacecraftProvider = ({ children }) => {
       setSpacecrafts([formData]);
   }
 
-console.log(spacecrafts, 'spacecrafts')
   useEffect(() => {
     if(spacecrafts.length > 0){
         const newestSpacecraft = spacecrafts[spacecrafts.length - 1]; 
         newestSpacecraft.currentLocation = "";
         SpaceTravelApi.buildSpacecraft(newestSpacecraft);
+
         const sendNewSpacecraftToEarth =  async() => {
             const allAPISpacecraft = await SpaceTravelApi.getSpacecrafts();
             const newestFromAPI = allAPISpacecraft.data;

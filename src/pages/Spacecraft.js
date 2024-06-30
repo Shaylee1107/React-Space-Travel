@@ -4,15 +4,15 @@ import { useContext } from 'react';
 import SpacecraftContext from '../context/SpacecraftContext';
 import ClickedSpacecraft from '../components/ClickedSpacecraft';
 import { useNavigate } from 'react-router-dom';
-import LoadingContext from '../context/LoadingContext';
 import { useCallback } from 'react';
-
+import LoadingContext from '../context/LoadingContext';
 
 const Spacecraft = () => {
-    const [spacecraft, setSpacecraft] = useState('');
-    const {currSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
-    // const {showLoadingSign, disableLoading, enableLoading} = useContext(LoadingContext);
+    const INITIAL_STATE = '';
+    const [spacecraft, setSpacecraft] = useState(INITIAL_STATE);
+    const {currSpacecraft, destroySpacecraft, setCurrSpacecraft} = useContext(SpacecraftContext);
     const navigate = useNavigate();
+    const {showLoadingSign, disableLoading, enableLoading} = useContext(LoadingContext);
 
     const loadShipFromEffect = useCallback(() => {
         if(spacecraft !== undefined && spacecraft !== '' && spacecraft !== null){
@@ -31,19 +31,22 @@ const Spacecraft = () => {
 
     useEffect(() => {
       const loadSpacecraft = async () => {
-            // enableLoading();
+            enableLoading();
             const current = await SpaceTravelApi.getSpacecraftById({id: currSpacecraft});
-            // disableLoading();
             setSpacecraft(current.data);
-            loadShipFromEffect();
+            setCurrSpacecraft(INITIAL_STATE);
+            disableLoading();
         }
 
-        loadSpacecraft();
+        if(currSpacecraft !== INITIAL_STATE){
+            loadSpacecraft();
+        }
+
     }, [currSpacecraft, loadShipFromEffect])
       
     return (
        <>
-        {/* {showLoadingSign()} */}
+        {showLoadingSign()}
         <button onClick={() => navigate(-1)}>Back</button>
         {loadShipFromEffect()}
        </>

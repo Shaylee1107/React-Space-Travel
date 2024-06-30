@@ -3,8 +3,6 @@ import SpaceTravelApi from '../services/SpaceTravelApi';
 import FlyingSpaceship from './FlyingSpaceship';
 import DestinationContext from '../context/DestinationContext';
 import { useContext } from 'react';
-import Loading from '../components/Loading';
-import LoadingContext from '../context/LoadingContext';
 import '../css/Planet.css';
 
 const Planet = ({ name, pictureUrl, currentPopulation, id}) => {

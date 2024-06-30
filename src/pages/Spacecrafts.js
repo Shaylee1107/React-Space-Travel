@@ -4,12 +4,14 @@ import SpaceTravelApi from '../services/SpaceTravelApi';
 import SpacecraftList from '../components/SpacecraftList';
 import { useContext } from 'react';
 import SpacecraftContext from '../context/SpacecraftContext';
+import LoadingContext from '../context/LoadingContext';
 
 
 const Spacecrafts = () => {
     const [spaceship, setSpaceship] = useState('');
     const navigate = useNavigate();
     const {setCurrSpacecraft, destroySpacecraft} = useContext(SpacecraftContext);
+    const {showLoadingSign, disableLoading, enableLoading} = useContext(LoadingContext);
  
     const showSpaceshipDetails = (id) => {
         setCurrSpacecraft(id);
@@ -28,6 +30,8 @@ const Spacecrafts = () => {
                 capacity={s.capacity}
                 showSpaceshipDetails={showSpaceshipDetails}
                 destroySpacecraft={destroySpacecraft}
+                enableLoading={enableLoading}
+                disableLoading={disableLoading}
                 />
               )
             })
@@ -37,8 +41,9 @@ const Spacecrafts = () => {
 
     useEffect(() => {
         const all = async () => {
+            enableLoading();
             const responce = await SpaceTravelApi.getSpacecrafts();
-            console.log(responce.data, 'data')
+            disableLoading();
             setSpaceship(responce.data);
         };
 
@@ -47,6 +52,7 @@ const Spacecrafts = () => {
 
     return (
         <div>
+            {showLoadingSign()}
             <button onClick={() => navigate('spacecraftbuild')}>🏗️Build a Spacecraft</button>
             <div>
               {loadSpacecrafts()}
