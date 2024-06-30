@@ -42,7 +42,7 @@ const Spacecraft = () => {
             loadSpacecraft();
         }
 
-    }, [currSpacecraft, loadShipFromEffect])
+    }, [currSpacecraft, loadShipFromEffect, disableLoading, enableLoading, setCurrSpacecraft])
       
     return (
        <>

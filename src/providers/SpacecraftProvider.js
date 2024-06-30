@@ -1,16 +1,20 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useEffect, useState, useCallback, useMemo} from 'react';
 import SpacecraftContext from '../context/SpacecraftContext';
 import SpaceTravelApi from '../services/SpaceTravelApi';
 
 const SpacecraftProvider = ({ children }) => {
-    const INITIAL_STATE = [];
+    const INITIAL_STATE = useMemo(() => [], []);
     const [spacecrafts, setSpacecrafts] = useState(INITIAL_STATE);
     const [currSpacecraft, setCurrSpacecraft] = useState('');
     const [destroyId, setDestroyId] = useState('');
   
-    const buildSpacecraft = (formData) => {
-      setSpacecrafts([formData]);
-  }
+  //   const buildSpacecraft = (formData) => {
+  //     setSpacecrafts([formData]);
+  // }
+
+  const buildSpacecraft = useCallback((formData) => {
+    setSpacecrafts([formData]);
+  }, [])
 
   useEffect(() => {
     if(spacecrafts.length > 0){
@@ -29,7 +33,7 @@ const SpacecraftProvider = ({ children }) => {
         
     }
 
-  }, [buildSpacecraft, spacecrafts])
+  }, [buildSpacecraft, spacecrafts, INITIAL_STATE])
 
   const destroySpacecraft = useCallback((id) => {
     setDestroyId(id);

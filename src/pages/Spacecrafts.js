@@ -48,7 +48,7 @@ const Spacecrafts = () => {
         };
 
         all();
-    }, [])
+    }, [disableLoading, enableLoading])
 
     return (
         <div>
