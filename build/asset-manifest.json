@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/React-Space-Travel/static/css/main.94b126d9.css",
-    "main.js": "/React-Space-Travel/static/js/main.e3129c9e.js",
-    "index.html": "/React-Space-Travel/index.html",
-    "main.94b126d9.css.map": "/React-Space-Travel/static/css/main.94b126d9.css.map",
-    "main.e3129c9e.js.map": "/React-Space-Travel/static/js/main.e3129c9e.js.map"
+    "main.css": "/react-space-travel/static/css/main.94b126d9.css",
+    "main.js": "/react-space-travel/static/js/main.f61ba1be.js",
+    "index.html": "/react-space-travel/index.html",
+    "main.94b126d9.css.map": "/react-space-travel/static/css/main.94b126d9.css.map",
+    "main.f61ba1be.js.map": "/react-space-travel/static/js/main.f61ba1be.js.map"
   },
   "entrypoints": [
     "static/css/main.94b126d9.css",
-    "static/js/main.e3129c9e.js"
+    "static/js/main.f61ba1be.js"
   ]
 }
