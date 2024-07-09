@@ -2,18 +2,17 @@ import React from 'react';
 import NavigationBar from "./routes/NavigationBar";
 import AppRoute from "./routes/AppRoute";
 import Motto from "./components/Motto";
-import Loading from "./components/Loading";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-    <BrowserRouter>
+    <HashRouter>
       <NavigationBar />
       <AppRoute />
       <Motto />
       {/* <Loading /> */}
-    </BrowserRouter>
+    </HashRouter>
     </>
   );
 }
