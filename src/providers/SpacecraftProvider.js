@@ -7,10 +7,6 @@ const SpacecraftProvider = ({ children }) => {
     const [spacecrafts, setSpacecrafts] = useState(INITIAL_STATE);
     const [currSpacecraft, setCurrSpacecraft] = useState('');
     const [destroyId, setDestroyId] = useState('');
-  
-  //   const buildSpacecraft = (formData) => {
-  //     setSpacecrafts([formData]);
-  // }
 
   const buildSpacecraft = useCallback((formData) => {
     setSpacecrafts([formData]);
