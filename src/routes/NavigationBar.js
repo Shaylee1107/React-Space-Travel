@@ -6,9 +6,9 @@ const NavigationBar = () => {
     const navigate = useNavigate();
     return (
         <div className="button-container">
-            <button onClick={() => navigate('/')}>Home</button>
-            <button onClick={() => navigate('spacecrafts')}>Spacecrafts</button>
-            <button onClick={() => navigate('planets')}>Planets</button>
+            <button className="nav-button teko-font" onClick={() => navigate('/')}>Home</button>
+            <button className="nav-button teko-font" onClick={() => navigate('spacecrafts')}>Spacecrafts</button>
+            <button className="nav-button teko-font" onClick={() => navigate('planets')}>Planets</button>
         </div>
     )
 }
