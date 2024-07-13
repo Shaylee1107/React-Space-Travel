@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap');
+
+.build-button {
+ background-color: transparent;
+ color: white;
+ margin-bottom: 20px;
+ margin-left: 48px;
+}
+
+.build-teko-font {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.build-teko-font:hover {
+    border-top: 2px solid blue;
+    border-left: 2px solid blue;
+}

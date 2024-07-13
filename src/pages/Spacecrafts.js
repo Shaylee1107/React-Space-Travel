@@ -5,6 +5,7 @@ import SpacecraftList from '../components/SpacecraftList';
 import { useContext } from 'react';
 import SpacecraftContext from '../context/SpacecraftContext';
 import LoadingContext from '../context/LoadingContext';
+import "../css/Spacecrafts.css";
 
 
 const Spacecrafts = () => {
@@ -53,7 +54,7 @@ const Spacecrafts = () => {
     return (
         <div>
             {showLoadingSign()}
-            <button onClick={() => navigate('spacecraftbuild')}>🏗️Build a Spacecraft</button>
+            <button className="build-button build-teko-font" onClick={() => navigate('spacecraftbuild')}>🏗️Build a Spacecraft</button>
             <div>
               {loadSpacecrafts()}
             </div>

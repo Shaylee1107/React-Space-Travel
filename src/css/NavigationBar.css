@@ -29,7 +29,7 @@
 }
 
 .teko-font:hover {
-    border: 1px solid blue; 
-    border-radius: 10px; 
+    border-top: 1px solid blue; 
+    border-left: 1px solid blue;
 }
 
