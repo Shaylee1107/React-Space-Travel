@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+<h1>React Space Travel</h1>
+An interactive game written in React.JS with a mock API, where users act as a space commander who saves survivors from Earth's unhabitable enviroment. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Description</h2>
+This web application's users are commanders who will create and launch spacecrafts to evacuate humankind from the Earth. 
+Users have the ability to veiw a list of spacecrafts, see the details of a spacecraft, build a new one, and destroy the old one. 
+But the capabilities of it continue beyond that as well; users may view planets with the spacecraft on it and send a spacecraft from one planet to another to transfer people. 
 
-## Available Scripts
+<h2>How to Play</h2>
+<img width="1437" alt="image" src="https://github.com/user-attachments/assets/96378ec9-f028-4f56-ac91-f385f7d3bf2c">
+<h3>Home</h3>
+Users may read the introduction to the game which tells: 
+<ul>
+    <li>The scene of how Earth in inhabitable in the future from human neglect to the enviorment.</li>
+    <li>Their role as commander engineer with the mission of building spacecrafts to send survivors to other planets.</li>
+    <li>How they can build, destroy, and launch spacecrafts as they please.</li>
+</ul>
 
-In the project directory, you can run:
+<h3>Spacecrafts</h3>
+Where the user, as commander engineer, may build and destroy spacecrafts. A default spacecraft named "Prispax" is provided, but may be deleted. 
+<h4>Building Spacecrafts</h4>
+<ol>
+    <li>Press the "Build a Spacecraft" button to pop up the form to build your spacecraft.</li>
+    <li>The "Name" of your spacecraft is what it will be called.</li>
+    <li>The "Capacity" is how many humans the spacecraft can hold.</li>
+    <li>The "Description" is the extra information that can be veiwed when clicking on the spacecraft from the spacecrafts tab.</li>
+    <li>The "Picture URL" will need any image URL from the internet.</li>
+    <li>Press the "Build" button when finished.</li>
+    <li>Press the "back" button to veiw your spacecraft.</li>
+</ol>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
