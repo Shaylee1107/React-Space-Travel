@@ -17,17 +17,31 @@ Users may read the introduction to the game which tells:
 </ul>
 
 <h3>Spacecrafts</h3>
-Where the user, as commander engineer, may build and destroy spacecrafts. A default spacecraft named "Prispax" is provided, but may be deleted. 
+Where the user, as commander engineer, may build, destroy, and veiw individual spacecrafts. A default spacecraft named "Prispax" is provided, but may be deleted. 
 <h4>Building Spacecrafts</h4>
 <ol>
     <li>Press the "Build a Spacecraft" button to pop up the form to build your spacecraft.</li>
     <li>The "Name" of your spacecraft is what it will be called.</li>
     <li>The "Capacity" is how many humans the spacecraft can hold.</li>
     <li>The "Description" is the extra information that can be veiwed when clicking on the spacecraft from the spacecrafts tab.</li>
-    <li>The "Picture URL" will need any image URL from the internet.</li>
+    <li>The "Picture URL" will need any image URL from the internet to be how the spacecraft looks.</li>
     <li>Press the "Build" button when finished.</li>
     <li>Press the "back" button to veiw your spacecraft.</li>
 </ol>
+
+<h4>Veiwing a Spacecraft</h4>
+<ol>
+    <li>Click on the image of the spacecaft.</li>
+    <li>Veiw the info suchh as the given name, capacity, and description. Also veiw the destroy option.</li>
+    <li>Hit the "back" button to return to the spacecrafts list.</li>
+</ol>
+
+<h4>Destroying a Spacecraft</h4>
+There are two ways to destory a spacecraft. 
+<ul>
+    <li>From the list of all spacecrafts, simply hit the destroy button.</li>
+    <li>After clicking on an individual spacecraft, hit the destory button.</li>
+</ul>
 
 
 
