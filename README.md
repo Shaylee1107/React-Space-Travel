@@ -1,5 +1,5 @@
 <h1>React Space Travel</h1>
-An interactive game written in React.JS with a mock API, where users act as a space commander who saves survivors from Earth's unhabitable enviroment. 
+An interactive game written in React.JS with a mock API that alters the data in local storage, where users act as a space commander who saves survivors from Earth's unhabitable enviroment. 
 
 <h2>Description</h2>
 This web application's users are commanders who will create and launch spacecrafts to evacuate humankind from the Earth. 
@@ -7,8 +7,13 @@ Users have the ability to veiw a list of spacecrafts, see the details of a space
 But the capabilities of it continue beyond that as well; users may view planets with the spacecraft on it and send a spacecraft from one planet to another to transfer people. 
 
 <h2>How to Play</h2>
+There are three available tabs in the navbar: Home, Spacecrafts, and Planets. 
+
 <img width="1437" alt="image" src="https://github.com/user-attachments/assets/96378ec9-f028-4f56-ac91-f385f7d3bf2c">
-<h3>Home</h3>
+
+  ````diff
+@@ HOME @@
+````
 Users may read the introduction to the game which tells: 
 <ul>
     <li>The scene of how Earth in inhabitable in the future from human neglect to the enviorment.</li>
@@ -16,7 +21,9 @@ Users may read the introduction to the game which tells:
     <li>How they can build, destroy, and launch spacecrafts as they please.</li>
 </ul>
 
-<h3>Spacecrafts</h3>
+  ````diff
+@@ SPACECRAFTS @@
+````
 Where the user, as commander engineer, may build, destroy, and veiw individual spacecrafts. A default spacecraft named "Prispax" is provided, but may be deleted. 
 <h4>Building Spacecrafts</h4>
 <ol>
@@ -43,7 +50,9 @@ There are two ways to destory a spacecraft.
     <li>After clicking on an individual spacecraft, hit the destory button.</li>
 </ul>
 
-<h3>Planets</h3>
+  ````diff
+@@ PLANETS @@
+````
 The user may launch spacecrafts to any of the planets! All spacecrafts first start on planet Earth.
 
 <h4>Launching a spacecraft</h4>
