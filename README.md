@@ -43,6 +43,15 @@ There are two ways to destory a spacecraft.
     <li>After clicking on an individual spacecraft, hit the destory button.</li>
 </ul>
 
+<h4>Planets</h4>
+The user may launch spacecrafts to any of the planets! All spacecrafts first start on planet Earth.
+
+<h3>Launching a spacecraft</h3>
+<ul>
+    <li>First click on the image of the spacecraft you wish to move.</li>
+    <li>Then click the image of the planet of your choosing.</li>
+</ul>
+
 
 
 
