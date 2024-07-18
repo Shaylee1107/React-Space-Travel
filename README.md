@@ -24,7 +24,7 @@ Where the user, as commander engineer, may build, destroy, and veiw individual s
     <li>The "Name" of your spacecraft is what it will be called.</li>
     <li>The "Capacity" is how many humans the spacecraft can hold.</li>
     <li>The "Description" is the extra information that can be veiwed when clicking on the spacecraft from the spacecrafts tab.</li>
-    <li>The "Picture URL" will need any image URL from the internet to be how the spacecraft looks.</li>
+    <li>The "Picture URL" will need any image URL from the internet.</li>
     <li>Press the "Build" button when finished.</li>
     <li>Press the "back" button to veiw your spacecraft.</li>
 </ol>
@@ -32,7 +32,7 @@ Where the user, as commander engineer, may build, destroy, and veiw individual s
 <h4>Veiwing a Spacecraft</h4>
 <ol>
     <li>Click on the image of the spacecaft.</li>
-    <li>Veiw the info suchh as the given name, capacity, and description. Also veiw the destroy option.</li>
+    <li>Veiw the info such as the given name, capacity, and description. Also veiw the destroy option.</li>
     <li>Hit the "back" button to return to the spacecrafts list.</li>
 </ol>
 
@@ -43,10 +43,10 @@ There are two ways to destory a spacecraft.
     <li>After clicking on an individual spacecraft, hit the destory button.</li>
 </ul>
 
-<h4>Planets</h4>
+<h3>Planets</h3>
 The user may launch spacecrafts to any of the planets! All spacecrafts first start on planet Earth.
 
-<h3>Launching a spacecraft</h3>
+<h4>Launching a spacecraft</h4>
 <ul>
     <li>First click on the image of the spacecraft you wish to move.</li>
     <li>Then click the image of the planet of your choosing.</li>
